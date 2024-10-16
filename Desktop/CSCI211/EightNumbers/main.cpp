@@ -7,11 +7,25 @@ for (int i=0; i<ca; i++){
 }
 int i=0;
 while(help[ca][i] != -1){
-    if (abs(cro[i]-cro[help[ca][i]])==1) return false;
+    if (abs(cro[i]-cro[help[ca][i]])==1) return false;// check if the adjacent squares have the consecutive number.
     i++;
 }
 return true;
 };
+
+// putting numbers in the array
+void eightnumbers(int cro[], int ca){
+    if (ca==8) {
+        print(cro); // print the result
+        return;
+    }
+    for (int i = 1; i<9; i++){
+        cro[ca]= i; // place the number
+        if (ok(cro,ca)) eightnumbers(cro, ca+1); // if the number is valid, move onto next square.
+    }
+};
+
+
 
 int main() {
 int cross[8];
