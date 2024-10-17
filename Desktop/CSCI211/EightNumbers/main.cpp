@@ -7,12 +7,13 @@ for (int i=0; i<ca; i++){
 }
 int i=0;
 while(help[ca][i] != -1){
-    if (abs(cro[i]-cro[help[ca][i]])==1) return false;// check if the adjacent squares have the consecutive number.
+    if (abs(cro[ca]-cro[help[ca][i]])==1) return false;// check if the adjacent squares have the consecutive number.
     i++;
 }
 return true;
 }
 
+//print function for the cross
 void print(int cro[]){
     static int sol = 1;
     cout << "Solution #" << sol++ << " : " << endl;
@@ -23,9 +24,11 @@ void print(int cro[]){
     cout << " " << cro[0] << cro[1] << " " << endl;
     cout << cro[2] << cro[3] << cro[4] << cro[5] << endl;
     cout << " " << cro[6] << cro[7] << " " << endl;
+    cout << endl;
 }
 
 // putting numbers in the array
+//recursive backtracking.
 void eightnumbers(int cro[], int hel[][5], int ca){
     if (ca==8) {
         print(cro); // print the result
